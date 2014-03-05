@@ -5,7 +5,7 @@ require 'open-uri'
 require 'rubygems/package'
 require 'zlib'
 
-class SourceFetcher < Thor
+class ChosenAssets::SourceFetcher < Thor
   include Thor::Actions
 
   GithubRepo = 'harvesthq/chosen'

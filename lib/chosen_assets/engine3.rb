@@ -1,5 +1,4 @@
-module Chosen
-  module Rails
+module ChosenAssets
     class Engine3 < ::Rails::Engine
       initializer 'chosen.assets.precompile' do |app|
         app.config.assets.precompile += %w(
@@ -7,5 +6,4 @@ module Chosen
         )
       end
     end
-  end
 end

@@ -1,5 +1,4 @@
-module Chosen
-  module Rails
+module ChosenAssets
     class Engine < ::Rails::Engine
       config.assets.precompile += %w(
         chosen-sprite*.png
@@ -9,5 +8,4 @@ module Chosen
         load 'chosen-rails/tasks.rake'
       end
     end
-  end
 end
