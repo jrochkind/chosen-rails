@@ -72,17 +72,19 @@ If you use simple form as form builder
 
 ## Gem maintenance
 
-Maintain `chosen-rails` gem with `Rake` commands.
+### Update chosen source in `chosen-rails` gem with `Rake` commands.
 
 Update origin chosen source files.
 
     rake update-chosen
 
 That will look for the latest release from chosen's github, download the
-release zip, and copy assets into source. If chosen is out of date, feel
-free to do this and make a pull request! 
+release zip, and copy assets into source. For css files, it also replaces
+any url() references to use rails-sass asset-url(). 
 
-Publish gem.
+If chosen is out of date, feel free to do this and make a pull request! 
+
+### Publish gem.
 
     rake release
 

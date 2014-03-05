@@ -36,21 +36,30 @@ class ChosenAssets::SourceFetcher
 
     # We're just gonna shell out to the 'unzip' command, OSX and unix prob
     # has it, good enough. 
-    local_source_path = "tmp/#{asset_name.chomp(File.extname(asset_name))}"
+    local_source_path = "tmp/#{asset_name.chomp(File.extname(asset_name))}.scss"
     system("unzip", local_zip_path, "-d", local_source_path)
 
     # Copy all the files over
 
     
     Dir.glob("#{local_source_path}/*.css").each do |source|
-      FileUtils.copy source, "vendor/assets/stylesheets/#{File.basename source}"
+      dest = "vendor/assets/stylesheets/#{File.basename source}.scss"
+      puts "copy to #{dest}"
+      FileUtils.copy source, dest
+
+      # replace url() with asset-pipeline-aware scss asset-url()
+      content = File.read(dest)
+      content.gsub!(/ url\(([^)]+)\)/, ' asset-url(\\1)')
+      File.open(dest, 'wb') { |file| file.write(content) }
     end
 
     Dir.glob("#{local_source_path}/*.js").each do |source|
+      puts "copy to vendor/assets/javascripts/#{File.basename source}"
       FileUtils.copy source, "vendor/assets/javascripts/#{File.basename source}"
     end
 
     Dir.glob("#{local_source_path}/*.{png,gif,jpg,jpeg}").each do |source|
+      puts "copy to vendor/assets/images/#{File.basename source}"
       FileUtils.copy source, "vendor/assets/images/#{File.basename source}"
     end
 
