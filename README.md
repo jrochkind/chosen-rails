@@ -2,7 +2,12 @@
 
 [Chosen](https://github.com/harvesthq/chosen) is a library for making long, unwieldy select boxes more user friendly.
 
-The `chosen-rails` gem integrates the `Chosen` with the Rails asset pipeline.
+The `chosen_assets` gem integrates the `Chosen` with the Rails asset pipeline.
+
+It is a fork of [chosen-rails](https://github.com/tsechingho/chosen-rails), `chosen_assets` gets
+already compiled .js and .css from the original chosen Github release (via the github api),
+and thus has no dependencies on compass (or sass or coffeescript), it just gives you the already
+compiled source. 
 
 ## Usage
 
@@ -10,7 +15,7 @@ The `chosen-rails` gem integrates the `Chosen` with the Rails asset pipeline.
 
 Include `chosen-rails` in Gemefile
 
-    gem 'chosen-rails'
+    gem 'chosen_assets'
 
 Then run `bundle install`
 
@@ -18,11 +23,11 @@ Then run `bundle install`
 
 Add to your `app/assets/javascripts/application.js` if use with jQuery
 
-    //= require chosen-jquery
+    //= require chosen.jquery
 
 Or with Prototype
 
-    //= require chosen-prototype
+    //= require chosen.prototype
 
 ### Include chosen stylesheet assets
 
@@ -45,7 +50,7 @@ Notice: `width` option is required since `Chosen 0.9.15`.
 
 And this file must be included in `application.js`
 
-    //= require chosen-jquery
+    //= require chosen.jquery
     //= require scaffold
 
 Also add the class to your form field
@@ -64,9 +69,6 @@ If you use simple form as form builder
       input_html: { class: 'chosen-select' }
     %>
 
-### Deployment
-
-Since version 0.13.0, non-digested assets of `chosen-rails` will simply be copied from digested assets.
 
 ## Gem maintenance
 
@@ -75,6 +77,10 @@ Maintain `chosen-rails` gem with `Rake` commands.
 Update origin chosen source files.
 
     rake update-chosen
+
+That will look for the latest release from chosen's github, download the
+release zip, and copy assets into source. If chosen is out of date, feel
+free to do this and make a pull request! 
 
 Publish gem.
 
