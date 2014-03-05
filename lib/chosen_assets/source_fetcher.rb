@@ -5,9 +5,7 @@ require 'open-uri'
 require 'rubygems/package'
 require 'zlib'
 
-class ChosenAssets::SourceFetcher < Thor
-  include Thor::Actions
-
+class ChosenAssets::SourceFetcher
   GithubRepo = 'harvesthq/chosen'
 
   def initialize(github_repo, tag_name = nil)
@@ -15,7 +13,7 @@ class ChosenAssets::SourceFetcher < Thor
     @tag_name = tag_name
   end
 
-  desc 'fetch source files', 'fetch source files from GitHub'
+  #desc 'fetch source files', 'fetch source files from GitHub'
   def fetch
     releases_data = JSON.load( open("https://api.github.com/repos/#{@github_repo}/releases") )
     release = if @tag_name.nil? 
