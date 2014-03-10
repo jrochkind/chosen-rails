@@ -49,7 +49,7 @@ class ChosenAssets::SourceFetcher
 
       # replace url() with asset-pipeline-aware scss asset-url()
       content = File.read(dest)
-      content.gsub!(/ url\(([^)]+)\)/, ' asset-url(\\1)')
+      content.gsub!(/ url\(([^)]+)\)/, ' asset-url(\\1, image)')
       File.open(dest, 'wb') { |file| file.write(content) }
     end
 
