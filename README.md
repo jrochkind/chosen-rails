@@ -4,7 +4,7 @@
 
 The `chosen_assets` gem integrates the `Chosen` with the Rails asset pipeline.
 
-It is a fork of [chosen-rails](https://github.com/tsechingho/chosen-rails), `chosen_assets` gets
+**This is a fork of [chosen-rails](https://github.com/tsechingho/chosen-rails)**, this gem, `chosen_assets`, gets
 already compiled .js and .css from the original chosen Github release (via the github api),
 and thus has no dependencies on compass (or sass or coffeescript), it just gives you the already
 compiled source. 
