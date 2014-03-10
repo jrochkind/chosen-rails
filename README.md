@@ -84,6 +84,9 @@ any url() references to use rails-sass asset-url().
 
 If chosen is out of date, feel free to do this and make a pull request! 
 
+Versioning for `chosen_assets` tracks chosen version -- `chosen_assets 1.1.0.0`
+uses chosen `1.1.0`, and is the first `chosen_assets` release of that chosen version. 
+
 ### Publish gem.
 
     rake release
