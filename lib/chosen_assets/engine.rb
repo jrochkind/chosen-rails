@@ -5,7 +5,7 @@ module ChosenAssets
       )
 
       rake_tasks do
-        load 'chosen-rails/tasks.rake'
+        load 'chosen_assets/tasks.rake'
       end
     end
 end
