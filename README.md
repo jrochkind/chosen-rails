@@ -11,9 +11,9 @@ compiled source.
 
 ## Usage
 
-### Install chosen-rails gem
+### Install chosen_assets gem
 
-Include `chosen-rails` in Gemefile
+Include `chosen_assets` in Gemefile
 
     gem 'chosen_assets'
 
@@ -72,7 +72,7 @@ If you use simple form as form builder
 
 ## Gem maintenance
 
-### Update chosen source in `chosen-rails` gem with `Rake` commands.
+### Update chosen source in `chosen_assets` gem with `Rake` commands.
 
 Update origin chosen source files.
 
